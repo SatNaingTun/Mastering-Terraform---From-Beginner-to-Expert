@@ -1,0 +1,7 @@
+export TF_WORKSPACE=staging
+terraform workspace show
+terraform workspace select prod
+unset TF_WORKSPACE
+touch prod.tfvars dev.tfvars staaging.tfvars
+alias tf_apply='terraform apply -var-file=$(terraform workspace show).tfvars'
+alias tf_destroy='terraform apply -var-file=$(terraform workspace show).tfvars'
